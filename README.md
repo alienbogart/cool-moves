@@ -20,7 +20,9 @@ This is a package to move text around. It uses basic functions to move words, li
 [See it in action](https://gfycat.com/ClassicUnevenEquestrian).
 
 # Rationale
-I'm an Evil user and write a lot of prose on Emacs. This package was inspired by [this](https://emacsredux.com/blog/2013/04/02/move-current-line-up-or-down/) and [this](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) blog posts. It uses basic functions to move words, lines, paragraphs, sentences, and sexps both forward and backward. This is my first attempt at publishing code, so criticism is more than welcome!
+I'm an Evil user and write a lot of prose on Emacs. This package was inspired by [this](https://emacsredux.com/blog/2013/04/02/move-current-line-up-or-down/) and [this](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) blog posts. It uses basic functions to move words, lines, paragraphs, sentences, and sexps both forward and backward. Being able to quickly reorganize my prose is extremely important for me.
+
+This is my first attempt at publishing code, so criticism is more than welcome!
 # Installation
 ## With use-package
 Put `cool-motions.el` somewhere in your Emacs path and replace `~/.emacs.d/lisp/cool-moves` with the path to it. Here's an example (the keybindings are optional):
