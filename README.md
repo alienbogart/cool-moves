@@ -1,10 +1,48 @@
 # Cool-Moves
 
-The package gives a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that is easier for Evil users. It works by leveraging transpose and other command Emacs basic commands.
+The package gives a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that is easier for Evil users. It works by leveraging transpose and other command Emacs basic commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work in the first word of a line.
+
+## Installation
+
+### With use-package
+
+Put `cool-motions.el` somewhere in your Emacs configuration folder and replace `load-path` with the path to it. Here's an example:
+
+``` emacs-lisp
+(use-package cool-moves
+:load-path "~/.emacs.d/lisp/cool-moves"
+:config
+(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards))
+```
+
+### Without use-package
+
+Remember to replace `~/.emacs.d/lisp/cool-moves` with the path you chose in your installation. The rest is straightforward.
+
+``` emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/cool-moves")
+(load "cool-moves")
+
+(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards)
+```
 
 ## Commands
 
-Each one of these commands command moving something forward or backwards, and are named accordingly. This package have no default keybindings, but I'll make some suggestions below.
+Each of these commands move something either forward or backwards, and are named in predictable manner. This package have no default keybindings, but I'll make some suggestions below.
 
 - cool-moves/character-backward
 - cool-moves/character-forward
@@ -12,7 +50,6 @@ Each one of these commands command moving something forward or backwards, and ar
 - cool-moves/line-forward
 - cool-moves/paragraph-forward
 - cool-moves/paragraph-backward
-- cool-moves/region-backward
 - cool-moves/sentence-backward
 - cool-moves/sentence-forward
 - cool-moves/sexp-backward
@@ -22,11 +59,11 @@ Each one of these commands command moving something forward or backwards, and ar
 
 # Settings
 
-Besides keybindings, there are no settings to be made.
+Besides the keybindings there are no settings to be made.
 
 # Suggested Keybindings
 
-I use [General](https://github.com/noctuid/general.el) for my keybindings, so here you go:
+I use the awesome [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
 
 ``` emacs-lisp
 (general-define-key
@@ -39,12 +76,14 @@ I use [General](https://github.com/noctuid/general.el) for my keybindings, so he
  "<C-down>" 'cool-moves/paragraph-forward)
 ```
 
+If you don't use General and don't know how to create keybindings, [this article](https://www.masteringemacs.org/article/mastering-key-bindings-emacs) might be helpful.
+
 # Suggested Hydra
 
-You can use a Hydra to make all the commands easily accessible.
+You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands easily accessible.
 
 ``` emacs-lisp
-(defhydra hydra-text-motions (:color amaranth :hint nil :exit nil :foreign-keys nil)
+(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
   "
   ^
        ^Motions^

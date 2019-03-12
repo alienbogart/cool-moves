@@ -78,12 +78,6 @@
   (transpose-sentences 1)
   (backward-sentence))
 
-(defun cool-moves/region-backward ()
-  "Move sentence backward."
-  (interactive)
-  (transpose-sentences 1)
-  (backward-sentence 2))
-
 (defun cool-moves/sexp-backward ()
   "Move sexp backward."
   (interactive)
