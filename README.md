@@ -1,3 +1,16 @@
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [Cool-Moves](#cool-moves)
+    - [Installation](#installation)
+        - [With use-package](#with-use-package)
+        - [Without use-package](#without-use-package)
+    - [Commands](#commands)
+- [Settings](#settings)
+- [Suggested Keybindings](#suggested-keybindings)
+- [Suggested Hydra](#suggested-hydra)
+
+<!-- markdown-toc end -->
 # Cool-Moves
 
 The package gives a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that is easier for Evil users. It works by leveraging transpose and other command Emacs basic commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work in the first word of a line.
@@ -6,7 +19,7 @@ The package gives a small subset of the features described in [this blog post](h
 
 ### With use-package
 
-Put `cool-motions.el` somewhere in your Emacs configuration folder and replace `load-path` with the path to it. Here's an example:
+Put `cool-motions.el` somewhere in your Emacs path and replace `~/.emacs.d/lisp/cool-moves` with the path to it. Here's an example:
 
 ``` emacs-lisp
 (use-package cool-moves
@@ -24,7 +37,7 @@ Put `cool-motions.el` somewhere in your Emacs configuration folder and replace `
 
 ### Without use-package
 
-Remember to replace `~/.emacs.d/lisp/cool-moves` with the path you chose in your installation. The rest is straightforward.
+Remember to replace `~/.emacs.d/lisp/cool-moves`. The rest is straightforward.
 
 ``` emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/lisp/cool-moves")
