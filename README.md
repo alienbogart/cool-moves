@@ -1,7 +1,8 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [Cool-Moves](#cool-moves)
+- [What It Does](#what-it-does)
+- [Rationale](#rationale)
     - [Installation](#installation)
         - [With use-package](#with-use-package)
         - [Without use-package](#without-use-package)
@@ -11,15 +12,20 @@
 - [Suggested Hydra](#suggested-hydra)
 
 <!-- markdown-toc end -->
-# Cool-Moves
 
-The package gives a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that is easier for Evil users. It works by leveraging transpose and other command Emacs basic commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work in the first word of a line.
+# What It Does
+
+This is package to move text around. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.
+
+# Rationale
+
+I'm an Evil user. This package provides a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in the [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that I can make work with Evil users. It works by leveraging transpose and other command Emacs simple commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work for the first word in a line.
 
 ## Installation
 
 ### With use-package
 
-Put `cool-motions.el` somewhere in your Emacs path and replace `~/.emacs.d/lisp/cool-moves` with the path to it. Here's an example:
+Put `cool-motions.el` somewhere in your Emacs path and replace `~/.emacs.d/lisp/cool-moves` with the path to it. Here's an example (the keybindings are optional):
 
 ``` emacs-lisp
 (use-package cool-moves
@@ -76,7 +82,7 @@ Besides the keybindings there are no settings to be made.
 
 # Suggested Keybindings
 
-I use the awesome [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
+I use [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
 
 ``` emacs-lisp
 (general-define-key
