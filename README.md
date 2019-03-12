@@ -6,21 +6,19 @@ The package gives a small subset of the features described in [this blog post](h
 
 Each one of these commands command moving something forward or backwards, and are named accordingly. This package have no default keybindings, but I'll make some suggestions below.
 
-``` emacs-lisp
-cool-moves/character-backward
-cool-moves/character-forward
-cool-moves/line-backward
-cool-moves/line-forward
-cool-moves/paragraph-forward
-cool-moves/paragraph-backward
-cool-moves/region-backward
-cool-moves/sentence-backward
-cool-moves/sentence-forward
-cool-moves/sexp-backward
-cool-moves/sexp-forward
-cool-moves/word-backwards
-cool-moves/word-forward
-```
+- cool-moves/character-backward
+- cool-moves/character-forward
+- cool-moves/line-backward
+- cool-moves/line-forward
+- cool-moves/paragraph-forward
+- cool-moves/paragraph-backward
+- cool-moves/region-backward
+- cool-moves/sentence-backward
+- cool-moves/sentence-forward
+- cool-moves/sexp-backward
+- cool-moves/sexp-forward
+- cool-moves/word-backwards
+- cool-moves/word-forward
 
 # Settings
 
