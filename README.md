@@ -87,7 +87,7 @@ I use [general.el](https://github.com/noctuid/general.el) for my keybindings, so
 
 If you don't use General and don't know how to create keybindings, [this article](https://www.masteringemacs.org/article/mastering-key-bindings-emacs) might be helpful.
 ## Suggested Hydra
-	You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands easily accessible.
+You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands easily accessible.
 
 ``` emacs-lisp
 (defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
