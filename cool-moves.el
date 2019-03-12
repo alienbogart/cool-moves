@@ -19,8 +19,9 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
-;;
+;; This is a package to move text around. It uses basic functions to
+;; move words, lines, paragraphs, sentences and sexps forward and
+;; backward.
 
 ;;; Code:
 

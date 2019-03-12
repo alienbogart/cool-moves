@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="/home/mrbig/org/Creative/Web/md_themes/retro/css/retro.css"  />
+</head>
+
+<body>
+
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [What It Does](#what-it-does)
+- [Rationale](#rationale)
+- [Installation](#installation)
+    - [With use-package](#with-use-package)
+    - [Without use-package](#without-use-package)
+- [Commands](#commands)
+- [Settings](#settings)
+    - [Suggested Keybindings](#suggested-keybindings)
+    - [Suggested Hydra](#suggested-hydra)
+- [Differences from drag-stuff](#differences-from-drag-stuff)
+
+<!-- markdown-toc end -->
+
+<h1>What It Does</h1>
+
+<p>This is package to move text around. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.</p>
+
+<p><a href="https://gfycat.com/ClassicUnevenEquestrian">See it in action</a>.</p>
+
+<h1>Rationale</h1>
+
+<p>I'm an Evil user. This package provides a small subset of the features described in <a href="https://with-emacs.com/posts/i-like-to-move-it-emacs-version/">this blog post</a> and in the <a href="https://with-emacs.com/posts/i-like-to-move-it-emacs-version/">objed mode</a>, but in a way that is easy to make work with my configurations. It works by leveraging transpose and other command Emacs simple commands. Because it uses the transpose family of commands, <code>cool-moves/word-forward</code> doesn't work for the first word in a line.</p>
+
+<h1>Installation</h1>
+
+<h2>With use-package</h2>
+
+<p>Put <code>cool-motions.el</code> somewhere in your Emacs path and replace <code>~/.emacs.d/lisp/cool-moves</code> with the path to it. Here's an example (the keybindings are optional):</p>
+
+<p><code>emacs-lisp
+(use-package cool-moves
+:load-path "~/.emacs.d/lisp/cool-moves"
+:config
+(general-define-key
+ :keymaps 'override
+"&lt;C-down&gt;" 'cool-moves/paragraph-forward
+"&lt;C-up&gt;" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards))
+</code></p>
+
+<h2>Without use-package</h2>
+
+<p>Remember to replace <code>~/.emacs.d/lisp/cool-moves</code>. The rest is straightforward.
+``` emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/cool-moves")
+(load "cool-moves")</p>
+
+<p>(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards)
+```</p>
+
+<h1>Commands</h1>
+
+<p>Each of these commands move something either forward or backwards, and are named in predictable manner. This package have no default keybindings, but I'll make some suggestions below.</p>
+
+<ul>
+<li>cool-moves/character-backward</li>
+<li>cool-moves/character-forward</li>
+<li>cool-moves/line-backward</li>
+<li>cool-moves/line-forward</li>
+<li>cool-moves/paragraph-forward</li>
+<li>cool-moves/paragraph-backward</li>
+<li>cool-moves/sentence-backward</li>
+<li>cool-moves/sentence-forward</li>
+<li>cool-moves/sexp-backward</li>
+<li>cool-moves/sexp-forward</li>
+<li>cool-moves/word-backwards</li>
+<li>cool-moves/word-forward
+<h1>Settings</h1></li>
+</ul>
+
+<p>Besides the keybindings there are no settings to be made.</p>
+
+<h2>Suggested Keybindings</h2>
+
+<p>I use <a href="https://github.com/noctuid/general.el">general.el</a> for my keybindings, so:</p>
+
+<p><code>emacs-lisp
+(general-define-key
+:keymaps 'override
+"C-S-j" 'cool-moves/line-forward
+"C-M-n" 'cool-moves/word-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-p" 'cool-moves/word-backwards
+"&lt;C-up&gt;" 'cool-moves/paragraph-backward
+"&lt;C-down&gt;" 'cool-moves/paragraph-forward)
+</code></p>
+
+<p>If you don't use General and don't know how to create keybindings, <a href="https://www.masteringemacs.org/article/mastering-key-bindings-emacs">this article</a> might be helpful.</p>
+
+<h2>Suggested Hydra</h2>
+
+<p>You can use a <a href="https://github.com/abo-abo/hydra">Hydra</a> to make the commands easily accessible.</p>
+
+<p>``` emacs-lisp
+(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
+"
+^
+    ^Motions^
+    -------------------------
+    <em>l</em>: line ↓      <em>w</em>: word →
+    <em>L</em>: line ↑      <em>W</em>: word ←
+    <em>p</em>: par  ↓      <em>c</em>: char →
+    <em>P</em>: par  ↑      <em>C</em>: char ←
+    <em>s</em>: sentence →  <em>x</em>: sexp →
+    <em>S</em>: sentence ←  <em>X</em>: sexp ←</p>
+
+<p>"</p>
+
+<p>("<escape>" nil)
+("u" nil)</p>
+
+<p>("l" cool-moves/line-forward)
+("L" cool-moves/line-backward)</p>
+
+<p>("p" cool-moves/paragraph-forward)
+("P" cool-moves/paragraph-backward)</p>
+
+<p>("w" cool-moves/word-forward)
+("W" cool-moves/word-backwards)</p>
+
+<p>("c" cool-moves/character-forward)
+("C" cool-moves/character-backward)</p>
+
+<p>("s" cool-moves/sentence-forward)
+("S" cool-moves/sentence-backward)</p>
+
+<p>("x" cool-moves/sexp-forward)
+("X" cool-moves/sexp-backward))
+```</p>
+
+<h1>Differences from drag-stuff</h1>
+
+<p><a href="https://github.com/rejeep/drag-stuff.el">drag-stuff</a> is bigger, more robuster and able to drag regions. Unlike cool-moves, it doesn't move sentences or characters. When I try to move <code>drag-stuff-right</code> on the first word of a line, it's switched with last word of the previous paragraph. drag-stuff seems competent at doing lots of things with a single command, but I like things that are simple and predictable. Works for me!</p>
+
+</body>
+</html>
