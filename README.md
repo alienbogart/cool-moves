@@ -14,15 +14,11 @@
 <!-- markdown-toc end -->
 
 # What It Does
-
 This is package to move text around. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.
-
 # [See It In Action](https://gfycat.com/ClassicUnevenEquestrian)
 
 # Rationale
-
-I'm an Evil user. This package provides a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in the [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that I can make work with Evil users. It works by leveraging transpose and other command Emacs simple commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work for the first word in a line.
-
+I'm an Evil user. This package provides a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in the [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that is easy to make work with my configurations. It works by leveraging transpose and other command Emacs simple commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work for the first word in a line.
 ## Installation
 
 ### With use-package
@@ -139,3 +135,5 @@ You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands eas
   ("x" cool-moves/sexp-forward)
   ("X" cool-moves/sexp-backward))
 ```
+# Differences from drag-stuff
+[drag-stuff](https://github.com/rejeep/drag-stuff.el) is bigger, more robuster and able to drag regions. Unlike cool-moves, it doesn't move sentences or characters. When I try to move `drag-stuff-right` on the first word of a line, it's switched with last word of the previous paragraph. drag-stuff seems to be competent at doing lots of things with a single command, but I like things that are simple and predictable. Works for me!
