@@ -74,56 +74,56 @@ Besides the keybindings there are no settings to be made.
 
 	I use [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
 
-	``` emacs-lisp
-	(general-define-key
-	:keymaps 'override
-	"C-S-j" 'cool-moves/line-forward
-	"C-M-n" 'cool-moves/word-forward
-	"C-S-k" 'cool-moves/line-backward
-	"C-M-p" 'cool-moves/word-backwards
-	"<C-up>" 'cool-moves/paragraph-backward
-	"<C-down>" 'cool-moves/paragraph-forward)
-	```
+``` emacs-lisp
+(general-define-key
+:keymaps 'override
+"C-S-j" 'cool-moves/line-forward
+"C-M-n" 'cool-moves/word-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-p" 'cool-moves/word-backwards
+"<C-up>" 'cool-moves/paragraph-backward
+"<C-down>" 'cool-moves/paragraph-forward)
+```
 
-	If you don't use General and don't know how to create keybindings, [this article](https://www.masteringemacs.org/article/mastering-key-bindings-emacs) might be helpful.
+If you don't use General and don't know how to create keybindings, [this article](https://www.masteringemacs.org/article/mastering-key-bindings-emacs) might be helpful.
 ## Suggested Hydra
 	You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands easily accessible.
 
-	``` emacs-lisp
-	(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
-	"
-	^
-		^Motions^
-		-------------------------
-		_l_: line ↓      _w_: word →
-		_L_: line ↑      _W_: word ←
-		_p_: par  ↓      _c_: char →
-		_P_: par  ↑      _C_: char ←
-		_s_: sentence →  _x_: sexp →
-		_S_: sentence ←  _X_: sexp ←
+``` emacs-lisp
+(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
+"
+^
+	^Motions^
+	-------------------------
+	_l_: line ↓      _w_: word →
+	_L_: line ↑      _W_: word ←
+	_p_: par  ↓      _c_: char →
+	_P_: par  ↑      _C_: char ←
+	_s_: sentence →  _x_: sexp →
+	_S_: sentence ←  _X_: sexp ←
 
-	"
+"
 
-	("<escape>" nil)
-	("u" nil)
+("<escape>" nil)
+("u" nil)
 
-	("l" cool-moves/line-forward)
-	("L" cool-moves/line-backward)
+("l" cool-moves/line-forward)
+("L" cool-moves/line-backward)
 
-	("p" cool-moves/paragraph-forward)
-	("P" cool-moves/paragraph-backward)
+("p" cool-moves/paragraph-forward)
+("P" cool-moves/paragraph-backward)
 
-	("w" cool-moves/word-forward)
-	("W" cool-moves/word-backwards)
+("w" cool-moves/word-forward)
+("W" cool-moves/word-backwards)
 
-	("c" cool-moves/character-forward)
-	("C" cool-moves/character-backward)
+("c" cool-moves/character-forward)
+("C" cool-moves/character-backward)
 
-	("s" cool-moves/sentence-forward)
-	("S" cool-moves/sentence-backward)
+("s" cool-moves/sentence-forward)
+("S" cool-moves/sentence-backward)
 
-	("x" cool-moves/sexp-forward)
-	("X" cool-moves/sexp-backward))
-	```
+("x" cool-moves/sexp-forward)
+("X" cool-moves/sexp-backward))
+```
 # Differences from drag-stuff
 [drag-stuff](https://github.com/rejeep/drag-stuff.el) is bigger, more robuster and able to drag regions. Unlike cool-moves, it doesn't move sentences or characters. When I try to move `drag-stuff-right` on the first word of a line, it's switched with last word of the previous paragraph. drag-stuff seems competent at doing lots of things with a single command, but I like things that are simple and predictable. Works for me!
