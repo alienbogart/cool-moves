@@ -17,6 +17,8 @@
 
 This is package to move text around. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.
 
+# [See It In Action](https://gfycat.com/ClassicUnevenEquestrian)
+
 # Rationale
 
 I'm an Evil user. This package provides a small subset of the features described in [this blog post](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/) and in the [objed mode](https://with-emacs.com/posts/i-like-to-move-it-emacs-version/), but in a way that I can make work with Evil users. It works by leveraging transpose and other command Emacs simple commands. Because it uses the transpose family of commands, `cool-moves/word-forward` doesn't work for the first word in a line.
