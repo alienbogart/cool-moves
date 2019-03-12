@@ -72,7 +72,7 @@ Each of these commands move something either forward or backwards, and are named
 Besides the keybindings there are no settings to be made.
 ## Suggested Keybindings
 
-	I use [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
+I use [general.el](https://github.com/noctuid/general.el) for my keybindings, so:
 
 ``` emacs-lisp
 (general-define-key
