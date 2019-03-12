@@ -128,4 +128,4 @@ You can use a [Hydra](https://github.com/abo-abo/hydra) to make the commands eas
 ("X" cool-moves/sexp-backward))
 ```
 # Differences from drag-stuff
-[drag-stuff](https://github.com/rejeep/drag-stuff.el) is bigger, robuster and able to drag regions. Unlike cool-moves, it doesn't move sentences or characters. When I try to move `drag-stuff-right` on the first word of a line, it's switched with the last word of the previous paragraph. drag-stuff seems competent at doing lots of things with a single command, but I like things that are simple and predictable. Works for me!
+[drag-stuff](https://github.com/rejeep/drag-stuff.el) is bigger, robuster and able to drag regions. Unlike cool-moves, it doesn't move sentences or characters. When I try to use `drag-stuff-right` on the first word of a line, it's switched with the last word of the previous paragraph. drag-stuff seems competent at doing lots of things with a single command, but I like things that are simple and predictable. Works for me!
