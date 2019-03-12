@@ -2,7 +2,7 @@
 **Table of Contents**
 
 - [What It Does](#what-it-does)
-- [[See It In Action](https://gfycat.com/ClassicUnevenEquestrian)](#see-it-in-actionhttpsgfycatcomclassicunevenequestrian)
+- [See It In Action](#see-it-in-actionhttpsgfycatcomclassicunevenequestrian)
 - [Rationale](#rationale)
 - [Installation](#installation)
     - [With use-package](#with-use-package)
