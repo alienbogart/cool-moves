@@ -24,86 +24,86 @@
 
 ;;; Code:
 
-(defun my/move-line-up ()
+(defun cool-moves/line-backward ()
   "Move line up."
   (interactive)
   (transpose-lines 1)
   (forward-line -2))
 
-(defun my/move-line-down ()
+(defun cool-moves/line-forward ()
   "Move line down."
   (interactive)
   (forward-line 1)
   (transpose-lines 1)
   (forward-line -1))
 
-(defun my/move-paragraph-down ()
+(defun cool-moves/paragraph-forward ()
   "Move paragraph down."
   (interactive)
   (transpose-paragraphs 1)
   (backward-paragraph)
   (forward-line))
 
-(defun my/move-paragraph-up ()
+(defun cool-moves/paragraph-backward ()
   "Move paragraph up."
   (interactive)
   (transpose-paragraphs -1)
   (backward-paragraph)
   (forward-line))
 
-(defun my/move-word-backwards ()
+(defun cool-moves/word-backwards ()
   "Move word backwards."
   (interactive)
   (backward-to-word 1)
   (transpose-words 1)
   (backward-word-strictly 2))
 
-(defun my/move-word-forward ()
+(defun cool-moves/word-forward ()
   "Move word forward."
   (interactive)
   (forward-to-word 1)
   (transpose-words 1)
   (backward-word))
 
-(defun my/move-sentence-backward ()
+(defun cool-moves/sentence-backward ()
   "Move sentence backward."
   (interactive)
   (transpose-sentences 1)
   (backward-sentence 2))
 
-(defun my/move-sentence-forward ()
+(defun cool-moves/sentence-forward ()
   "Move sentence forward."
   (interactive)
   (forward-sentence 1)
   (transpose-sentences 1)
   (backward-sentence))
 
-(defun my/move-region-backward ()
+(defun cool-moves/region-backward ()
   "Move sentence backward."
   (interactive)
   (transpose-sentences 1)
   (backward-sentence 2))
 
-(defun my/move-sexp-backward ()
+(defun cool-moves/sexp-backward ()
   "Move sexp backward."
   (interactive)
   (transpose-sexps 1)
   (backward-sexp 2))
 
-(defun my/move-sexp-forward ()
+(defun cool-moves/sexp-forward ()
   "Move sexp forward."
   (interactive)
   (forward-sexp 1)
   (transpose-sexps 1)
   (backward-sexp))
 
-(defun my/move-character-backward ()
+(defun cool-moves/character-backward ()
   "Move character backward."
   (interactive)
   (transpose-chars 1)
   (backward-char 2))
 
-(defun my/move-character-forward ()
+(defun cool-moves/character-forward ()
   "Move character forward."
   (interactive)
   (forward-char 1)
