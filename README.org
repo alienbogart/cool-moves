@@ -1,3 +1,15 @@
+* Table of Contents                                             :toc:
+- [[#what-it-does][What It Does]]
+- [[#rationale][Rationale]]
+- [[#installation][Installation]]
+  - [[#with-use-package][With use-package]]
+  - [[#without-use-package][Without use-package]]
+- [[#commands][Commands]]
+- [[#settings][Settings]]
+  - [[#suggested-keybindings][Suggested Keybindings]]
+  - [[#suggested-hydra][Suggested Hydra]]
+- [[#differences-from-drag-stuff][Differences from drag-stuff]]
+
 * What It Does
 This is a package to move text around on Emacs. It uses basic functions
 to move words, lines, paragraphs, sentences and sexps forward and
