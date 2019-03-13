@@ -15,7 +15,7 @@
 <!-- markdown-toc end -->
 
 # What It Does
-This is a package to move text around. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.
+This is a package to move text around on Emacs. It uses basic functions to move words, lines, paragraphs, sentences and sexps forward and backward.
 
 [See it in action](https://gfycat.com/ClassicUnevenEquestrian).
 

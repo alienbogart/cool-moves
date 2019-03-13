@@ -108,13 +108,15 @@
 ;; Adapted from: https://www.emacswiki.org/emacs/OpenNextLine"
 
 (defun cool-moves/open-line-below (arg)
-  "Go to next line and then open a new one."
+  "Go to next line and then open a new one.
+Writing ARG just because I hate seeing the
+flycheck error."
   (interactive "p")
   (end-of-line)
   (open-line arg)
   (forward-line 1))
 
-(defun cool-moves/open-line-above (arg)
+(defun cool-moves/open-line-above ()
   "Go to previous line and then open a new one."
   (interactive "p")
   (forward-line -1)
