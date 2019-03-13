@@ -105,6 +105,22 @@
   (transpose-chars 1)
   (backward-char))
 
+;; Adapted from: https://www.emacswiki.org/emacs/OpenNextLine"
+
+(defun cool-moves/open-line-below (arg)
+  "Go to next line and then open a new one."
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (forward-line 1))
+
+(defun cool-moves/open-line-above (arg)
+  "Go to previous line and then open a new one."
+  (interactive "p")
+  (forward-line -1)
+  (end-of-line)
+  (newline 1))
+
 (provide 'cool-moves)
 
 ;;; cool-moves.el ends here
