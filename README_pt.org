@@ -11,14 +11,14 @@
 - [[#diferenças-com-o-pacote-drag-stuff][Diferenças com o pacote drag-stuff]]
 
 * O Que Faz
-/Cool Moves/ é um pacote para para Emacs de movimentação de texto. Ele usa funcoes basicas para mover palavras, linhas, sentenças, parágrafos e expressoes simbolicas.
+/Cool Moves/ é um pacote para Emacs de movimentação de texto. Ele usa funções básicas para mover palavras, linhas, sentenças, parágrafos e expressões simbólicas.
 [[https://gfycat.com/ClassicUnevenEquestrian][Veja o Cool Moves em ação]].
 * Motivos
-Sou usuário do pacote Evil e escrevo todo meu texto em prosa no Emacs. Este pacote foi inpirado por esta e esta postangens. Ele usa funcoes basicas casa para movimentar dinamicamente linhas, palavars, parágrafos, sentenças e expressões simbólicas. Poder reorganizar minha prosa facilmente é extremamente importante para mim.
-Essa é a primeira vez que público codigo e toda crítica é bem vinda!
+Sou usuário do pacote Evil e escrevo todo meu texto em prosa no Emacs. Este pacote foi inpirado por esta e esta postagens. Ele usa funções básicas casa para movimentar dinamicamente linhas, palavras, parágrafos, sentenças e expressões simbólicas. Poder reorganizar minha prosa facilmente é extremamente importante para mim.
+Essa é a primeira vez que público código e toda crítica é bem vinda!
 * Instalação
 ** Com o use-package
-Coloque o arquivo `cool-moves.el` em seu diretorio de configuracao e substitua `~/.emacs.d/lisp/cool-moves` por este caminho. Veja o examplo (os atalhos de teclado são opcionais):
+Coloque o arquivo `cool-moves.el` em seu diretório de configuração e substitua `~/.emacs.d/lisp/cool-moves` por este caminho. Veja o exemplo (os atalhos de teclado são opcionais):
 
 
 #+BEGIN_SRC emacs-lisp
@@ -36,7 +36,7 @@ Coloque o arquivo `cool-moves.el` em seu diretorio de configuracao e substitua `
 #+END_SRC
 
 ** Sem use-package
-Lembre de subsituir `~/.emacs.d/lisp/cool-moves`. O resto é simples.
+Lembre de substituir `~/.emacs.d/lisp/cool-moves`. O resto é simples.
 
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/lisp/cool-moves")
@@ -52,7 +52,7 @@ Lembre de subsituir `~/.emacs.d/lisp/cool-moves`. O resto é simples.
 "C-M-p" 'cool-moves/word-backwards)
 #+END_SRC
 * Comandos
-Cada um desses comandos move algo para frente ou para trás. Este pacote não possui keybindings padrão, mas você pode seguiar as sugestões deste documento.
+Cada um desses comandos move algo para frente ou para trás. Este pacote não possui keybindings padrão, mas você pode seguir as sugestões deste documento.
 
 | Comando                       | Tradução    |
 |-------------------------------+-------------|
@@ -70,10 +70,10 @@ Cada um desses comandos move algo para frente ou para trás. Este pacote não po
 | cool-moves/sexp-backward      | expressão ← |
 | cool-moves/sexp-forward       | expressão → |
 * Configurações
-Além dos atalhos de teclado, não há configuracoes a fazer.
+Além dos atalhos de teclado, não há configurações a fazer.
 ** Atalhos de teclado sugeridos
 
-São as mesmas de seção anteriores, aqui repitidas apenas para fácil referência. Eu uso o excelente [[https://github.com/noctuid/general.el][general.el]] para minhas keybidings, então:
+São as mesmas de seção anteriores, aqui repetidas apenas para fácil referência. Eu uso o excelente [[https://github.com/noctuid/general.el][general.el]] para minhas keybidings, então:
 
 #+BEGIN_SRC emacs-lisp
 (general-define-key
@@ -128,4 +128,4 @@ Você pode usar um [[https://github.com/abo-abo/hydra][Hydra]] para deixar os co
 ("X" cool-moves/sexp-backward))
 #+END_SRC
 * Diferenças com o pacote drag-stuff
-[[https://github.com/rejeep/drag-stuff.el][drag-stuff]] é maior, mais robusto e capaz de arrastar regions. Ao contrário de ~cool-moves~, não move sentencas ou caracteres. Ao tentar usar ~drag-stuff-right~ na primeira palavra de uma linha, a mesma é trocada com a última palavra do paragrafo anterior. De todo modo, ~drag-stuff~ é claramente um bom modo/plugin que faz muito com poucos comandos, mas em edicao de texto previsibilidade é essencial e eu não preco da complexidade extra. Eu não usei nenhum código deste pacote, mas minhas funcoes foram muito inspiradas no [[https://emacsredux.com/blog/2013/04/02/move-current-line-up-or-down/][artigo]] de Bozhidar Batsov mencionado anteriormente.
+[[https://github.com/rejeep/drag-stuff.el][drag-stuff]] é maior, mais robusto e capaz de arrastar regiões. Ao contrário de ~cool-moves~, não move sentenças ou caracteres. Ao tentar usar ~drag-stuff-right~ na primeira palavra de uma linha, a mesma é trocada com a última palavra do paragrafo anterior. De todo modo, ~drag-stuff~ é claramente um bom modo/plugin que faz muito com poucos comandos, mas em edição de texto previsibilidade é essencial e eu não preço da complexidade extra. Eu não usei nenhum código deste pacote, mas minhas funções foram muito inspiradas no [[https://emacsredux.com/blog/2013/04/02/move-current-line-up-or-down/][artigo]] de Bozhidar Batsov mencionado anteriormente.
