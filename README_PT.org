@@ -1,0 +1,131 @@
+* Índice                                                        :toc:
+- [[#o-que-faz][O Que Faz]]
+- [[#motivos][Motivos]]
+- [[#instalação][Instalação]]
+  - [[#com-o-use-package][Com o use-package]]
+  - [[#sem-use-package][Sem use-package]]
+- [[#comandos][Comandos]]
+- [[#configurações][Configurações]]
+  - [[#atalhos-de-teclado-sugeridos][Atalhos de teclado sugeridos]]
+  - [[#hydra-sugerida][Hydra sugerida]]
+- [[#diferenças-com-o-pacote-drag-stuff][Diferenças com o pacote drag-stuff]]
+
+* O Que Faz
+/Cool Moves/ é um pacote para para Emacs de movimentação de texto. Ele usa funcoes basicas para mover palavras, linhas, sentenças, parágrafos e expressoes simbolicas.
+[[https://gfycat.com/ClassicUnevenEquestrian][Veja o Cool Moves em ação]].
+* Motivos
+Sou usuário do pacote Evil e escrevo todo meu texto em prosa no Emacs. Este pacote foi inpirado por esta e esta postangens. Ele usa funcoes basicas casa para movimentar dinamicamente linhas, palavars, parágrafos, sentenças e expressões simbólicas. Poder reorganizar minha prosa facilmente é extremamente importante para mim.
+Essa é a primeira vez que público codigo e toda crítica é bem vinda!
+* Instalação
+** Com o use-package
+Coloque o arquivo `cool-moves.el` em seu diretorio de configuracao e substitua `~/.emacs.d/lisp/cool-moves` por este caminho. Veja o examplo (os atalhos de teclado são opcionais):
+
+
+#+BEGIN_SRC emacs-lisp
+(use-package cool-moves
+:load-path "~/.emacs.d/lisp/cool-moves"
+:config
+(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards))
+#+END_SRC
+
+** Sem use-package
+Lembre de subsituir `~/.emacs.d/lisp/cool-moves`. O resto é simples.
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/cool-moves")
+(load "cool-moves")
+
+(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards)
+#+END_SRC
+* Comandos
+Cada um desses comandos move algo para frente ou para trás. Este pacote não possui keybindings padrão, mas você pode seguiar as sugestões deste documento.
+
+| Comando                       | Tradução    |
+|-------------------------------+-------------|
+|                               |             |
+| cool-moves/character-backward | caractere ← |
+| cool-moves/character-forward  | caractere → |
+| cool-moves/word-backwards     | palavra   ← |
+| cool-moves/word-forward       | palavra   → |
+| cool-moves/sentence-backward  | sentença  ← |
+| cool-moves/sentence-forward   | sentença  → |
+| cool-moves/line-backward      | linha     ← |
+| cool-moves/line-forward       | linha     → |
+| cool-moves/paragraph-forward  | parágrafo ← |
+| cool-moves/paragraph-backward | parágrafo → |
+| cool-moves/sexp-backward      | expressão ← |
+| cool-moves/sexp-forward       | expressão → |
+* Configurações
+Além dos atalhos de teclado, não há configuracoes a fazer.
+** Atalhos de teclado sugeridos
+
+São as mesmas de seção anteriores, aqui repitidas apenas para fácil referência. Eu uso o excelente [[https://github.com/noctuid/general.el][general.el]] para minhas keybidings, então:
+
+#+BEGIN_SRC emacs-lisp
+(general-define-key
+:keymaps 'override
+"C-S-j" 'cool-moves/line-forward
+"C-M-n" 'cool-moves/word-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-p" 'cool-moves/word-backwards
+"<C-up>" 'cool-moves/paragraph-backward
+"<C-down>" 'cool-moves/paragraph-forward)
+#+END_SRC
+
+Se você não usa o General e não sabem como criar keybidings, [[https://www.masteringemacs.org/article/mastering-key-bindings-emacs][este artigo]] pode ser útil.
+** Hydra sugerida
+Você pode usar um [[https://github.com/abo-abo/hydra][Hydra]] para deixar os comandos mais acessíveis.
+
+
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
+"
+^
+	^Motions^
+	-------------------------
+	_l_: line ↓      _w_: word →
+	_L_: line ↑      _W_: word ←
+	_p_: par  ↓      _c_: char →
+	_P_: par  ↑      _C_: char ←
+	_s_: sentence →  _x_: sexp →
+	_S_: sentence ←  _X_: sexp ←
+
+"
+
+("<escape>" nil)
+("u" nil)
+
+("l" cool-moves/line-forward)
+("L" cool-moves/line-backward)
+
+("p" cool-moves/paragraph-forward)
+("P" cool-moves/paragraph-backward)
+
+("w" cool-moves/word-forward)
+("W" cool-moves/word-backwards)
+
+("c" cool-moves/character-forward)
+("C" cool-moves/character-backward)
+
+("s" cool-moves/sentence-forward)
+("S" cool-moves/sentence-backward)
+
+("x" cool-moves/sexp-forward)
+("X" cool-moves/sexp-backward))
+#+END_SRC
+* Diferenças com o pacote drag-stuff
+[[https://github.com/rejeep/drag-stuff.el][drag-stuff]] é maior, mais robusto e capaz de arrastar regions. Ao contrário de ~cool-moves~, não move sentencas ou caracteres. Ao tentar usar ~drag-stuff-right~ na primeira palavra de uma linha, a mesma é trocada com a última palavra do paragrafo anterior. De todo modo, ~drag-stuff~ é claramente um bom modo/plugin que faz muito com poucos comandos, mas em edicao de texto previsibilidade é essencial e eu não preco da complexidade extra. Eu não usei nenhum código deste pacote, mas minhas funcoes foram muito inspiradas no [[https://emacsredux.com/blog/2013/04/02/move-current-line-up-or-down/][artigo]] de Bozhidar Batsov mencionado anteriormente.
