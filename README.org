@@ -1,4 +1,6 @@
-[[https://github.com/mrbig033/cool-moves/blob/master/README_pt.org][Leia Em Português]]
+
+[[https://github.com/mrbig033/cool-moves/blob/master/README_pt.org][ /Leia Em Português/]]
+
 * Table of Contents                                             :toc:
 - [[#what-it-does][What It Does]]
 - [[#rationale][Rationale]]
