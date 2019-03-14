@@ -109,7 +109,7 @@
 
 (defun cool-moves/open-line-above ()
   "Go to previous line and then open a new one."
-  (interactive "p")
+  (interactive)
   (forward-line -1)
   (end-of-line)
   (newline 1))
