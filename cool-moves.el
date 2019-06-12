@@ -123,6 +123,21 @@ flycheck error."
   (open-line arg)
   (forward-line 1))
 
+(defun cool-moves/move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun cool-moves/move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
 (provide 'cool-moves)
 
 ;;; cool-moves.el ends here
